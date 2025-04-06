@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Hover Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .container .card {
+            position: relative;
+            width: 320px;
+            height: 400px;
+            background: rgb(45, 45, 45);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .container .card::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            left: var(--x, 50%);
+            top: var(--y, 50%);
+            transform: translate(-50%, -50%);
+            background: radial-gradient(var(--clr), transparent, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .container .card:hover::before {
+            opacity: 1;
+        }
+
+        .container .card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 18px;
+            background: rgba(45, 45, 45, 0.75);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" style="--clr: #0f0;"></div>
+        <div class="card" style="--clr: #ff0;"></div>
+    </div>
+    <script>
+        let cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.onmousemove = function (e) {
+                let x = e.pageX - card.offsetLeft;
+                let y = e.pageY - card.offsetTop;
+                card.style.setProperty('--x', x + 'px');
+                card.style.setProperty('--y', y + 'px');
+            };
+        });
+    </script>
+</body>
+
+</html>

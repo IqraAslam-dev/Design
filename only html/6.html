@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWH Logo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Black background */
+        }
+
+        .logo {
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: #0071c1; /* Blue color */
+            font-size: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo .text {
+            z-index: 2;
+        }
+
+        .logo .circle {
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            border: 10px solid #d40000; /* Red color */
+            border-radius: 50%;
+            transform: rotate(-30deg);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="text">CWH</div>
+        <div class="circle"></div>
+    </div>
+</body>
+</html>

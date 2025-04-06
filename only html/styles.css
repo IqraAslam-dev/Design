@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e3e3e3;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1300px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 350px;
+  background: #e3e3e3;
+  border-radius: 50px;
+  box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #fff;
+  transition: all 500ms ease-in-out;
+  overflow: hidden;
+}
+.card.active {
+  transform: scale(1.1);
+}
+.card h2 {
+  font-size: 2rem;
+  font-family: "Kanit", cursive;
+  color: #ff8e72;
+  margin: 1rem 0;
+}
+.card figure {
+  margin: 1rem;
+}
+.card figure img {
+  width: 100%;
+}
+.card .card__info {
+  font-weight: bold;
+  color: #ff8e72;
+}
+.card .cardNav {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 1rem 0;
+}
+.card .cardNav li {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.card .cardNav li:hover {
+  background: #ff8e72;
+  color: #fff;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Design</title>
+    <style>
+        body {
+            background-color: #FAE29E;
+            /* Light yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between triangles */
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .left-triangle {
+            border-width: 69px 89px 69px 0;
+            position: relative;
+            left: -12px;
+            border-color: transparent #EA9A52 transparent transparent;
+        }
+
+        .right-triangle {
+            border-width: 69px 0 69px 87px;
+            position: relative;
+            left: 10px;
+            border-color: transparent transparent transparent #EA9A52;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="triangle left-triangle"></div>
+        <div class="triangle right-triangle"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Animation</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Font Name = Roboto ( Link in Description ) */
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Roboto;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #ffffff;
+            color: #535254;
+            display: grid;
+            place-items: center;
+        }
+
+        .text {
+            text-align: center;
+            transform: translateX(50px);
+        }
+
+        .text h3 {
+            font-size: 22px;
+            color: #716e74;
+        }
+
+        .text p {
+            font-size: 12px;
+            font-weight: 500;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .text p::after {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 2px;
+            background-color: #68656a;
+            border-radius: 10px;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Cursor Css  */
+
+        #cursor {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #646265;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            transition: .1s;
+            pointer-events: none;
+        }
+
+        #cursor2 {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #605f62;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            transition: .08s;
+            pointer-events: none;
+        }
+
+        /* Css For Content Hover  */
+
+        .text:hover~#cursor {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: #666468;
+            opacity: .4;
+        }
+
+        .text:hover~#cursor2 {
+            display: none;
+        }
+
+        .heading {
+            width: 200px;
+            height: 38px;
+            background-color: #6d6b6f;
+            border-radius: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .heading h3 {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text">
+        <p>Cursor Follow on Mousemove</p>
+    </div>
+    <div id="cursor"></div>
+    <div id="cursor2"></div>
+
+
+
+    <script>
+        var cursor = document.querySelector("#cursor");
+        var cursor2 = document.querySelector("#cursor2");
+
+        document.addEventListener("mousemove", function (e) {
+            cursor.style.cssText = cursor2.style.cssText = "left:" + e.clientX + "px;" + "top:" + e.clientY + "px;";
+        })
+
+    </script>
+</body>
+
+</html>

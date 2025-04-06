@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Line Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .chart-item {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>20 Line Charts</h1>
+    <div class="chart-container" id="charts-container"></div>
+
+    <script>
+        // Create 20 charts with unique IDs and random data
+        const chartsData = Array.from({ length: 20 }, (_, i) => ({
+            id: `chart${i + 1}`,
+            label: `Chart ${i + 1}`,
+            data: Array.from({ length: 10 }, () => Math.floor(Math.random() * 100)), // Random data points
+            labels: ['Point 1', 'Point 2', 'Point 3', 'Point 4', 'Point 5', 'Point 6', 'Point 7', 'Point 8', 'Point 9', 'Point 10']
+        }));
+
+        const chartsContainer = document.getElementById('charts-container');
+
+        chartsData.forEach((chart) => {
+            // Create a canvas for each chart
+            const canvasContainer = document.createElement('div');
+            canvasContainer.classList.add('chart-item');
+            const canvas = document.createElement('canvas');
+            canvas.id = chart.id;
+            canvasContainer.appendChild(canvas);
+            chartsContainer.appendChild(canvasContainer);
+
+            // Initialize Chart.js for each chart
+            const ctx = canvas.getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chart.labels,
+                    datasets: [{
+                        label: chart.label,
+                        data: chart.data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

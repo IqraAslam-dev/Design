@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Import the required libraries
+    const { Configuration, OpenAIApi } = require("openai");
+
+    // Initialize OpenAI API configuration
+    const configuration = new Configuration({
+      apiKey: "YOUR_API_KEY_HERE", // Replace with your OpenAI API key
+    });
+
+    const openai = new OpenAIApi(configuration);
+
+    // Function to generate AI response
+    async function getAIResponse(userInput) {
+      try {
+        const response = await openai.createChatCompletion({
+          model: "gpt-3.5-turbo", // Model used
+          messages: [
+            { role: "system", content: "You are a helpful assistant." },
+            { role: "user", content: userInput },
+          ],
+          max_tokens: 150, // Limit the response length
+        });
+
+        console.log("AI Response:", response.data.choices[0].message.content.trim());
+      } catch (error) {
+        console.error("Error:", error.message);
+      }
+    }
+
+    // Example usage
+    const userMessage = "What is AI?";
+    j
+    getAIResponse(userMessage);
+
+
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,49 @@
+/* Created by Tivotal */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+}
+.card {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    background: rgba(45, 45, 45, 1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card::before {
+    position: absolute;
+    content: '';
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(#0f0, transparent, transparent);
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.5s, top 0s, left 0s;
+}
+
+.card:hover:before {
+    opacity: 1;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    inset: 3px;
+    background: rgba(45, 45, 45, 0.85);
+    border-radius: 18px;
+}

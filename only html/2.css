@@ -1,0 +1,49 @@
+body {
+    background-color: chartreuse;
+}
+
+.a1 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: blue;
+    background-color: aqua;
+    border-radius: 13px;
+    border: solid 2px rgb(20, 229, 229);
+    box-shadow: -1px 3px 20px 0px black;
+    padding: 24px;
+    margin-left: 455px;
+    margin-top: 19px;
+}
+
+.a1:hover {
+    color: rgb(251, 255, 0);
+    background-color: rgb(255, 0, 234);
+    border: solid 2px rgb(255, 0, 234);
+    
+}
+
+.a2 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: blue;
+    background-color: aqua;
+    border-radius: 13px;
+    border: solid 2px rgb(20, 229, 229);
+    box-shadow: -1px 3px 20px 0px black;
+    padding: 24px;
+    margin-left: 88px;
+    margin-top: 19px;
+}
+
+.a2:hover {
+        color: rgb(251, 255, 0);
+            background-color: rgb(255, 0, 234);
+            border: solid 2px rgb(255, 0, 234);
+     
+}
+.maindiv{
+    margin-top: 300px;
+        margin-left: -51px;
+}

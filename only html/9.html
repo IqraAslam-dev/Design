@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="9.css">
+</head>
+<body bgcolor="#4445">
+    <main id="main">
+    
+        <div class="card">
+            <h2>Lorem ipsum dolor sit.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis veniam sit sint est temporibus
+                eligendi neque ducimus doloribus facere doloremque, vel accusamus, eos ab iste. Eveniet atque alias
+                consequatur.</p>
+            <button>Read More</button>
+        </div>
+    
+        <div class="overlay" aria-hidden="true">
+            <!-- duplicate will go here -->
+        </div>
+    <script>
+        const main = document.querySelector("#main");
+            const content = main.querySelector(":scope > *");
+            const clone = content.cloneNode(true);
+            const overlay = document.querySelector(".overlay");
+            overlay.insertAdjacentElement("beforeend", clone);
+
+            const applyOverlayMask = (e) => {
+                const overlayEl = e.currentTarget;
+                const x = e.pageX - main.offsetLeft;
+                const y = e.pageY - main.offsetTop;
+                overlayEl.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
+            };
+
+            document.body.addEventListener("pointermove", applyOverlayMask);
+    </script>
+    </main>
+</body>
+</html>

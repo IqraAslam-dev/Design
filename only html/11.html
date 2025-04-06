@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Animation with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #cursor {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #7a2ae5;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            transition: 0.1s;
+            pointer-events: none;
+        }
+
+        #cursor2 {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #7a2ae5;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            transition: 0.08s;
+            pointer-events: none;
+        }
+
+        .hover-effect:hover~#cursor {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: #7a2ae5;
+            opacity: 0.4;
+        }
+
+        .hover-effect:hover~#cursor2 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-200 h-screen flex items-center justify-center">
+    <!-- Main Content -->
+    <div class="text-center">
+        <!-- Heading -->
+        <div class="bg-purple-700 w-52 h-10 rounded flex items-center justify-center mb-2">
+            <h3 class="text-white text-lg font-medium">Cursor Animation</h3>
+        </div>
+        <!-- Description -->
+        <p class="text-sm font-medium text-gray-700 relative pl-6 hover-effect">
+            Cursor Follow on Mousemove
+            <span class="absolute left-0 top-1/2 w-5 h-0.5 bg-gray-700 rounded transform -translate-y-1/2"></span>
+        </p>
+    </div>
+
+    <!-- Custom Cursors -->
+    <div id="cursor"></div>
+    <div id="cursor2"></div>
+
+    <!-- JavaScript -->
+    <script>
+        const cursor = document.querySelector("#cursor");
+        const cursor2 = document.querySelector("#cursor2");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.cssText = cursor2.style.cssText = `left:${e.clientX}px; top:${e.clientY}px;`;
+        });
+    </script>
+</body>
+
+</html>

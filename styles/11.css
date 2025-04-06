@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e3e3e3;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1300px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 350px;
+  height: auto;
+  border-radius: 50px;
+  background: #e3e3e3;
+  box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #fff;
+  transition: all 500ms ease-in-out;
+  overflow: hidden;
+}
+.card:first-child {
+  transform: rotate(-2deg);
+}
+.card:last-child {
+  transform: rotate(2deg);
+}
+.card.active {
+  min-width: 400px;
+}
+.card.active::before {
+  border-bottom: 1rem solid #ff8e72;
+  border-left: 0.25rem solid #ff8e72;
+}
+.card.active figure {
+  border: 1rem solid #ff8e72;
+  height: calc(400px - 8rem);
+  filter: drop-shadow(0.5rem 1rem 10px rgba(255, 142, 114, 0.25));
+}
+.card::before, .card::after,
+.card figure img,
+.card .cardNav > * {
+  transition: all 500ms ease-in-out;
+}
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.card::before {
+  background: #f7f7f7;
+  height: 50%;
+  top: 0;
+  border-radius: 0 0 25% 100%;
+  border-bottom: 1rem solid #377771;
+  border-left: 0.25rem solid #377771;
+}
+.card::after {
+  bottom: 0;
+  height: 5rem;
+  background: linear-gradient(totop, #fff, rgba(255, 255, 255, 0.25) 15%, transparent);
+  border-radius: 0 0 50px 50px;
+  opacity: 0;
+}
+.card h2 {
+  position: relative;
+  font-size: 2rem;
+  font-family: "Kanit", cursive;
+  color: #ff8e72;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-shadow: 0 -1px 5px #d6d6d6;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 0.5rem 2rem;
+  border-radius: 32px;
+  background: linear-gradient(145deg, #e3e3e3, #f3f3f3);
+  box-shadow: 6px 6px 12px #c1c1c1, -6px -6px 12px #ffffff;
+}
+.card figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(350px - 8rem);
+  background: #f7f7f7;
+  margin: 2rem 4rem;
+  border-radius: 50%;
+  text-align: center;
+  border: 1rem solid #377771;
+  filter: drop-shadow(0.5rem 1rem 10px rgba(55, 119, 113, 0.25));
+}
+.card figure img {
+  position: relative;
+  transform: scale(0.8);
+  z-index: 1;
+}
+.card__info {
+  text-align: center;
+  color: #ff8e72;
+  font-weight: bold;
+  height: 36px;
+  min-width: 60%;
+  padding: 5px 0;
+  border-radius: 50px;
+  background: #e3e3e3;
+  box-shadow: inset 4px 4px 7px #bebebe, inset -4px -4px 7px #ffffff;
+}
+.card__info span.hover {
+  color: #377771;
+  font-weight: normal;
+}
+.card .cardNav {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: calc(100% - 4px);
+  margin: 3rem 0;
+  border-radius: 0 0 50px 50px;
+  z-index: 1;
+}
+.card .cardNav > * {
+  position: relative;
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #cccccc, #f3f3f3);
+  box-shadow: 6px 6px 12px #c1c1c1, -6px -6px 12px #ffffff;
+  cursor: pointer;
+}
+.card .cardNav > * i {
+  color: #377771;
+  font-size: 1.3em;
+  line-height: 4rem;
+  text-shadow: 0 1px 1px #fff;
+}
+.card .cardNav > *:nth-child(2) i {
+  color: #ff8e72;
+}
+.card .cardNav > *:hover {
+  box-shadow: inset 4px 4px 7px #bebebe, inset -4px -4px 7px #ffffff;
+}
+.card:hover {
+  box-shadow: 10px 10px 40px #cacaca, -10px -10px 40px #fff;
+}
+.card:hover:first-child, .card:hover:last-child {
+  transform: rotate(0);
+}
+.card:hover::after {
+  opacity: 1;
+}
+.card:hover figure img {
+  transform: scale(1.4) rotate(3deg);
+}/*# sourceMappingURL=11.css.map */

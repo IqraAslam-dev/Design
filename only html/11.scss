@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #e3e3e3;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1300px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+// CARD SETTINGS
+ $color: #201a23;
+$gray: #e3e3e3;
+$white: #fff;
+$green: #377771;
+$highlight: #ff8e72;
+$border-radius: 50px;
+$title: "Kanit", cursive;
+$time: 500ms;
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 350px;
+    height: auto;
+    border-radius: $border-radius;
+    background: $gray;
+    box-shadow: 20px 20px 60px darken($gray, 10), -20px -20px 60px $white;
+    transition: all $time ease-in-out;
+    overflow: hidden;
+
+    &:first-child {
+        transform: rotate(-2deg);
+    }
+
+    &:last-child {
+        transform: rotate(2deg);
+    }
+
+    &.active {
+        min-width: 400px;
+
+        &::before {
+            border-bottom: 1rem solid $highlight;
+            border-left: 0.25rem solid $highlight;
+        }
+
+        figure {
+            border: 1rem solid $highlight;
+            height: calc(400px - 8rem);
+            filter: drop-shadow(0.5rem 1rem 10px rgba($highlight, 0.25));
+        }
+    }
+
+    //transition
+    &::before,
+    &::after,
+    figure img,
+    .cardNav>* {
+        transition: all $time ease-in-out;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    &::before {
+        background: darken($white, 3);
+        height: 50%;
+        top: 0;
+        border-radius: 0 0 25% 100%;
+        border-bottom: 1rem solid $green;
+        border-left: 0.25rem solid $green;
+    }
+
+    &::after {
+        bottom: 0;
+        height: 5rem;
+        background: linear-gradient(\totop,
+                $white,
+                rgba($white, 0.25) 15%,
+                transparent);
+        border-radius: 0 0 $border-radius $border-radius;
+        opacity: 0;
+    }
+
+    h2 {
+        position: relative;
+        font-size: 2rem;
+        font-family: $title;
+        color: $highlight;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-shadow: 0 -1px 5px darken($gray, 5);
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 2rem 0;
+        padding: 0.5rem 2rem;
+        border-radius: 32px;
+        background: linear-gradient(145deg, $gray, #f3f3f3);
+        box-shadow: 6px 6px 12px #c1c1c1, -6px -6px 12px #ffffff;
+    }
+
+    figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: calc(350px - 8rem);
+        background: darken($white, 3);
+        margin: 2rem 4rem;
+        border-radius: 50%;
+        text-align: center;
+        border: 1rem solid $green;
+        filter: drop-shadow(0.5rem 1rem 10px rgba($green, 0.25));
+
+        img {
+            position: relative;
+            transform: scale(0.8);
+            z-index: 1;
+        }
+    }
+
+    &__info {
+        text-align: center;
+        color: $highlight;
+        font-weight: bold;
+        height: 36px;
+        min-width: 60%;
+        padding: 5px 0;
+        border-radius: $border-radius;
+        background: $gray;
+        box-shadow: inset 4px 4px 7px #bebebe, inset -4px -4px 7px #ffffff;
+
+        span.hover {
+            color: $green;
+            font-weight: normal;
+        }
+    }
+
+    .cardNav {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        width: calc(100% - 4px);
+        margin: 3rem 0;
+        border-radius: 0 0 50px 50px;
+        z-index: 1;
+
+        >* {
+            position: relative;
+            text-align: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #cccccc, #f3f3f3);
+            box-shadow: 6px 6px 12px #c1c1c1, -6px -6px 12px #ffffff;
+            cursor: pointer;
+
+            i {
+                color: $green;
+                font-size: 1.3em;
+                line-height: 4rem;
+                text-shadow: 0 1px 1px $white;
+            }
+
+            &:nth-child(2) i {
+                color: $highlight;
+            }
+
+            &:hover {
+                box-shadow: inset 4px 4px 7px #bebebe,
+                    inset -4px -4px 7px #ffffff;
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: 10px 10px 40px darken($gray, 10), -10px -10px 40px $white;
+
+        &:first-child,
+        &:last-child {
+            transform: rotate(0);
+        }
+
+        &::after {
+            opacity: 1;
+        }
+
+        figure {
+            img {
+                transform: scale(1.4) rotate(3deg);
+            }
+        }
+    }
+}

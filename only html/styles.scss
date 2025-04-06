@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #e3e3e3;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1300px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+// Variables
+$color: #201a23;
+$gray: #e3e3e3;
+$white: #fff;
+$green: #377771;
+$highlight: #ff8e72;
+$border-radius: 50px;
+$time: 500ms;
+
+// Card Styles
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 350px;
+    background: $gray;
+    border-radius: $border-radius;
+    box-shadow: 20px 20px 60px darken($gray, 10), -20px -20px 60px $white;
+    transition: all $time ease-in-out;
+    overflow: hidden;
+
+    &.active {
+        transform: scale(1.1);
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-family: "Kanit", cursive;
+        color: $highlight;
+        margin: 1rem 0;
+    }
+
+    figure {
+        margin: 1rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .card__info {
+        font-weight: bold;
+        color: $highlight;
+    }
+
+    .cardNav {
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        margin: 1rem 0;
+
+        li {
+            background: $white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:hover {
+                background: $highlight;
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut', // You can change this to 'pie' if you prefer
+            data: {
+                labels: ['Yellow', 'Teal', 'White'], // Labels for the chart
+                datasets: [{
+                    label: 'Dataset',
+                    data: [25, 50, 25], // Percentage values
+                    backgroundColor: [
+                        'rgb(255, 205, 86)', // Yellow
+                        'rgb(0, 128, 128)', // Teal
+                        'rgb(255, 255, 255)' // White
+                    ],
+                    borderColor: [
+                        'rgb(0, 0, 0)', // Optional: Black border
+                        'rgb(0, 0, 0)',
+                        'rgb(0, 0, 0)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false // Hides the legend
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+<div class="maindiv">
+    <div class="a1">
+        <div class="a4">
+            <div class="a5">
+                <div class="a6">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a2">
+        <div class="a3">
+            <div class="a7"></div>
+            <div class="a8">
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background-color: #588A95;
+    }
+
+    * {
+        margin: 0px;
+        padding: 0px;
+
+    }
+
+    .maindiv {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        background-color: #588A95;
+        align-self: center;
+        justify-items: center;
+        position: relative;
+        left: 95px;
+        top: 50px
+    }
+
+    .a2 {
+        width: 170px;
+        height: 24px;
+        background: #ffffff;
+        position: relative;
+        top: 10.3px;
+
+    }
+
+    .a3 {
+        width: 132px;
+        height: 24px;
+        background: #ffffff;
+        position: relative;
+        top: 48px;
+        left: 38px;
+    }
+
+    .a4 {
+        width: 24px;
+        height: 116px;
+        background: #ffffff;
+        position: relative;
+        top: 64px;
+        left: 49px;
+    }
+
+    .a1 {
+        width: 25px;
+        height: 180px;
+        background: #ffffff;
+        position: relative;
+        left: 14px;
+        top: 10px;
+    }
+
+    .a6 {
+        width: 36px;
+        height: 24px;
+        background: #ffffff;
+        position: relative;
+        top: -20px;
+        left: 0px;
+    }
+
+    .a8 {
+        width: 24px;
+        height: 84px;
+        background: #ffffff;
+        position: relative;
+        top: 22px;
+        left: 48px;
+    }
+
+    .a7 {
+        width: 78px;
+        height: 25px;
+        background: #ffffff;
+        position: relative;
+        top: 47px;
+        left: 55px;
+    }
+
+    .a5 {
+        width: 24px;
+        height: 16px;
+        background: #ffffff;
+        position: relative;
+        top: 100px;
+        left: 96px;
+    }
+</style>
+
+ OBJECTIVE -->
+<!-- Write HTML/CSS in this editor and replicate the given target image in the least code possible. What you write here, renders as it is -->
+
+<!-- SCORING -->
+<!-- The score is calculated based on the number of characters you use (this comment included :P) and how close you replicate the image. Read the FAQS (https://cssbattle.dev/faqs) for more info. -->
+
+<!-- IMPORTANT: remove the comments before submitting -->

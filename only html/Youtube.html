@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="icon" href="./images/youtube-player-multimedia-video-communication-interaction-svgrepo-com.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #181818;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #202020;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            font-size: 20px;
+            color: #fff;
+            margin-right: auto;
+        }
+
+        .navbar input {
+            flex: 1;
+            padding: 18px 47px;
+            margin: 0 10px;
+            border: 1px solid #444;
+            border-radius: 20px;
+            background-color: #121212;
+            color: #fff;
+            width: 48px;
+            height: 38px;
+
+        }
+
+        .navbar input::placeholder {
+            color: #aaa;
+        }
+
+        .navbar button {
+            padding: 8px 15px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar button i {
+            margin-right: 5px;
+        }
+
+        .navbar button:hover {
+            background-color: #555;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #202020;
+            padding: 10px 0;
+            min-height: 100vh;
+            position: sticky;
+            top: 0;
+            position: fixed;
+            overflow: hidden;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li i {
+            font-size: 18px;
+        }
+
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .sidebar h3 {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .subscriptions-list {
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        .subscriptions-list div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        .subscriptions-list div img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .main-container {
+            display: flex;
+        }
+
+        .video-grid {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 317px;
+            height: 248px;
+            background-color: #3d3838;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #444;
+        }
+
+        .video-info {
+            padding: 10px;
+        }
+
+        .video-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .video-info h3:hover {
+            color: #1e90ff;
+            cursor: pointer;
+        }
+
+        .video-info p {
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1><i class="f"> <img style="width: 30px; position: relative; top: 10px;"
+                    src="./images/youtube-player-multimedia-video-communication-interaction-svgrepo-com.svg" alt="">
+            </i> <i>YouTube</i> <sup style="font-size: 10px;">PK</sup></h1>
+        <input type="text" placeholder="Search">
+        <button><i class="fas fa-search"></i> Search</button>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <ul>
+                <li class="active"><i class="fas fa-home"></i> Home</li>
+                <li><i class="fas fa-play"></i> Shorts</li>
+                <li><i class="fas fa-photo-video"></i> Subscriptions</li>
+            </ul>
+            <h3>You</h3>
+            <ul>
+                <li><i class="fas fa-history"></i> History</li>
+                <li><i class="fas fa-list"></i> Playlists</li>
+                <li><i class="fas fa-video"></i> Your videos</li>
+                <li><i class="fas fa-clock"></i> Watch later</li>
+                <li><i class="fas fa-thumbs-up"></i> Liked videos</li>
+            </ul>
+            <h3>Subscriptions</h3>
+            <div class="subscriptions-list">
+                <div>
+                    <img width="30px" src="./images/1a18130d-0f0d-47cb-bb1b-e1a8c7ab56be.jpeg" alt="Channel">
+                    CodeWithHarry
+                </div>
+                <div>
+                    <img src="./images/2ffbfb2d-03d2-48cb-ab52-551aa220c1ce.jpeg" alt="Channel">
+                    Apna College
+                </div>
+                <div>
+                    <img src="./images/da9761d7-3986-46ec-81bd-19b421f5a612.jpeg" alt="Channel">
+                    Sheryians Coding School
+                </div>
+                <div>
+                    <img src="images/./بسم اللہ الرحمن الرحیم.jpeg" alt="Channel">
+                    Eng Mazhar
+                </div>
+            </div>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <img src="https://via.placeholder.com/250x140" alt="Video thumbnail">
+                <div class="video-info">
+                    <h3>Video Title</h3>
+                    <p>Channel Name · Views · Time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
